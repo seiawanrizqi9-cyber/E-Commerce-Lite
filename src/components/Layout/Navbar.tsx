@@ -79,9 +79,6 @@ const Navbar: React.FC = () => {
           {/* Spacer */}
           <div className="w-4"></div>
 
-          {/* Theme Toggle */}
-          <ThemeToggle />
-
           {/* Cart */}
           <div className="relative">
             <button
@@ -98,6 +95,9 @@ const Navbar: React.FC = () => {
             </button>
           </div>
 
+          {/* Theme Toggle */}
+          <ThemeToggle />
+          
           {/* Auth Section */}
           {user ? (
             <div className="flex items-center space-x-3 ml-2">
