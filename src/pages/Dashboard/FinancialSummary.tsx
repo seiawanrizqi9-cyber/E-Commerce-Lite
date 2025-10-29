@@ -18,7 +18,7 @@ const FinancialSummary: React.FC<FinancialSummaryProps> = ({ data }) => {
   };
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-6 mb-8">
+    <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
       <div className="bg-linear-to-br from-blue-500 to-blue-600 text-white p-6 rounded-2xl shadow-lg">
         <div className="flex items-center justify-between">
           <div>
@@ -29,10 +29,10 @@ const FinancialSummary: React.FC<FinancialSummaryProps> = ({ data }) => {
         </div>
       </div>
 
-      <div className="bg-linear-to-br from-green-500 to-green-600 text-white p-6 rounded-2xl shadow-lg">
+      <div className="bg-linear-to-br from-emerald-500 to-emerald-600 text-white p-6 rounded-2xl shadow-lg">
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-green-100 text-sm">Total Sales</p>
+            <p className="text-emerald-100 text-sm">Total Sales</p>
             <p className="text-2xl font-bold mt-2">{data.totalSales.toLocaleString()}</p>
           </div>
           <div className="text-3xl">📦</div>

@@ -12,8 +12,8 @@ const ProductList: React.FC<ProductListProps> = ({ products, onProductClick }) =
     return (
       <div className="text-center py-12">
         <div className="text-4xl mb-4">😕</div>
-        <h3 className="text-lg font-semibold text-gray-800 mb-2">No products found</h3>
-        <p className="text-gray-600">Try adjusting your search or filters</p>
+        <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-2">No products found</h3>
+        <p className="text-gray-600 dark:text-gray-300">Try adjusting your search or filters</p>
       </div>
     );
   }

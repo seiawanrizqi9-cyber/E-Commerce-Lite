@@ -66,12 +66,10 @@ const CartSidebar: React.FC = () => {
     }
     
     if (!user) {
-      // Show login required in checkout modal
       localStorage.setItem('openCheckout', 'true');
       window.dispatchEvent(new Event('storage'));
       window.dispatchEvent(new CustomEvent('checkoutToggle'));
     } else {
-      // User is logged in, proceed to checkout
       localStorage.setItem('openCheckout', 'true');
       window.dispatchEvent(new Event('storage'));
       window.dispatchEvent(new CustomEvent('checkoutToggle'));
@@ -104,22 +102,22 @@ const CartSidebar: React.FC = () => {
       {/* Sidebar */}
       <div 
         id="cart-sidebar"
-        className="fixed top-0 right-0 h-full w-96 bg-white shadow-2xl z-50 flex flex-col transform transition-transform duration-300 ease-in-out"
+        className="fixed top-0 right-0 h-full w-96 bg-white dark:bg-gray-900 shadow-2xl z-50 flex flex-col transform transition-transform duration-300 ease-in-out"
       >
         {/* Header */}
-        <div className="flex items-center justify-between p-4 border-b border-gray-200 bg-white">
+        <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900">
           <div className="flex items-center space-x-3">
-            <div className="w-7 h-7 bg-blue-100 rounded-full flex items-center justify-center">
-              <span className="text-blue-600 text-xs">🛒</span>
+            <div className="w-7 h-7 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center">
+              <span className="text-blue-600 dark:text-blue-400 text-xs">🛒</span>
             </div>
             <div>
-              <h2 className="text-lg font-bold text-gray-800">Shopping Cart</h2>
-              <p className="text-xs text-gray-500">{cartItems.length} items</p>
+              <h2 className="text-lg font-bold text-gray-800 dark:text-white">Shopping Cart</h2>
+              <p className="text-xs text-gray-500 dark:text-gray-400">{cartItems.length} items</p>
             </div>
           </div>
           <button
             onClick={() => setIsOpen(false)}
-            className="text-gray-400 hover:text-gray-600 text-xl transition-colors p-1 hover:bg-gray-100 rounded-full"
+            className="text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 text-xl transition-colors p-1 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full"
             aria-label="Close cart"
           >
             ×
@@ -130,9 +128,9 @@ const CartSidebar: React.FC = () => {
         <div className="flex-1 overflow-y-auto p-4">
           {cartItems.length === 0 ? (
             <div className="text-center py-8">
-              <div className="text-4xl mb-3 text-gray-300">🛒</div>
-              <h3 className="text-base font-semibold text-gray-800 mb-2">Your cart is empty</h3>
-              <p className="text-gray-600 mb-4 text-sm">Add some products to get started!</p>
+              <div className="text-4xl mb-3 text-gray-300 dark:text-gray-600">🛒</div>
+              <h3 className="text-base font-semibold text-gray-800 dark:text-white mb-2">Your cart is empty</h3>
+              <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm">Add some products to get started!</p>
               <Button
                 onClick={() => setIsOpen(false)}
                 variant="outline"
@@ -147,19 +145,19 @@ const CartSidebar: React.FC = () => {
               {cartItems.map((item) => (
                 <div 
                   key={item.id} 
-                  className="flex items-center space-x-3 bg-gray-50 rounded-lg p-3 transition-all duration-200 hover:bg-gray-100 border border-gray-200"
+                  className="flex items-center space-x-3 bg-gray-50 dark:bg-gray-800 rounded-lg p-3 transition-all duration-200 hover:bg-gray-100 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-600"
                 >
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="w-12 h-12 object-contain bg-white rounded border border-gray-200"
+                    className="w-12 h-12 object-contain bg-white dark:bg-gray-900 rounded border border-gray-200 dark:border-gray-600"
                   />
                   
                   <div className="flex-1 min-w-0">
-                    <h4 className="font-semibold text-gray-800 text-xs line-clamp-2 mb-1">
+                    <h4 className="font-semibold text-gray-800 dark:text-white text-xs line-clamp-2 mb-1">
                       {item.title}
                     </h4>
-                    <p className="text-blue-600 font-bold text-xs mb-2">
+                    <p className="text-blue-600 dark:text-blue-400 font-bold text-xs mb-2">
                       ${(item.price * item.quantity).toFixed(2)}
                     </p>
                     
@@ -168,17 +166,17 @@ const CartSidebar: React.FC = () => {
                       <div className="flex items-center space-x-2">
                         <button
                           onClick={() => handleQuantityChange(item, item.quantity - 1)}
-                          className="w-6 h-6 bg-white border border-gray-300 rounded-full flex items-center justify-center text-xs hover:bg-gray-100 transition-colors shadow-sm"
+                          className="w-6 h-6 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-full flex items-center justify-center text-xs hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors shadow-sm"
                           aria-label="Decrease quantity"
                         >
                           -
                         </button>
-                        <span className="text-xs font-medium w-6 text-center text-gray-700 bg-white py-1 rounded border">
+                        <span className="text-xs font-medium w-6 text-center text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 py-1 rounded border dark:border-gray-600">
                           {item.quantity}
                         </span>
                         <button
                           onClick={() => handleQuantityChange(item, item.quantity + 1)}
-                          className="w-6 h-6 bg-white border border-gray-300 rounded-full flex items-center justify-center text-xs hover:bg-gray-100 transition-colors shadow-sm"
+                          className="w-6 h-6 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-full flex items-center justify-center text-xs hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors shadow-sm"
                           aria-label="Increase quantity"
                         >
                           +
@@ -187,7 +185,7 @@ const CartSidebar: React.FC = () => {
                       
                       <button
                         onClick={() => removeFromCart(item.id)}
-                        className="text-red-500 hover:text-red-700 p-1 transition-colors hover:bg-red-50 rounded-full"
+                        className="text-red-500 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300 p-1 transition-colors hover:bg-red-50 dark:hover:bg-red-900/30 rounded-full"
                         title="Remove item"
                         aria-label="Remove item"
                       >
@@ -205,17 +203,17 @@ const CartSidebar: React.FC = () => {
 
         {/* Footer - Hanya tampil jika ada items */}
         {cartItems.length > 0 && (
-          <div className="border-t border-gray-200 p-4 space-y-3 bg-white">
+          <div className="border-t border-gray-200 dark:border-gray-700 p-4 space-y-3 bg-white dark:bg-gray-900">
             {/* Total */}
             <div className="flex justify-between items-center text-base font-bold">
-              <span className="text-gray-700">Total:</span>
-              <span className="text-blue-600">${cartTotal.toFixed(2)}</span>
+              <span className="text-gray-700 dark:text-gray-300">Total:</span>
+              <span className="text-blue-600 dark:text-blue-400">${cartTotal.toFixed(2)}</span>
             </div>
 
             {/* Login Notice */}
             {!user && (
-              <div className="p-2 bg-yellow-50 border border-yellow-200 rounded-lg">
-                <p className="text-xs text-yellow-700 text-center">
+              <div className="p-2 bg-yellow-50 dark:bg-yellow-900/30 border border-yellow-200 dark:border-yellow-700 rounded-lg">
+                <p className="text-xs text-yellow-700 dark:text-yellow-400 text-center">
                   🔒 Login required for checkout
                 </p>
               </div>
@@ -233,7 +231,7 @@ const CartSidebar: React.FC = () => {
                 variant="outline"
                 onClick={handleClearCart}
                 size="sm"
-                className="w-full py-2 text-sm font-medium hover:bg-red-50 hover:text-red-700 hover:border-red-300 transition-colors"
+                className="w-full py-2 text-sm font-medium hover:bg-red-50 dark:hover:bg-red-900/30 hover:text-red-700 dark:hover:text-red-400 hover:border-red-300 dark:hover:border-red-600 transition-colors"
               >
                 🗑️ Clear Cart
               </Button>
@@ -242,7 +240,7 @@ const CartSidebar: React.FC = () => {
             {/* Continue Shopping */}
             <button
               onClick={() => setIsOpen(false)}
-              className="w-full text-center text-xs text-gray-600 hover:text-gray-800 py-1 transition-colors"
+              className="w-full text-center text-xs text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 py-1 transition-colors"
             >
               ← Continue Shopping
             </button>

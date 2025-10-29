@@ -46,7 +46,7 @@ const ProductDetail: React.FC = () => {
     const emptyStars = 5 - stars.length;
     for (let i = 0; i < emptyStars; i++) {
       stars.push(
-        <span key={`empty-${i}`} className="text-gray-300 text-xl">
+        <span key={`empty-${i}`} className="text-gray-300 dark:text-gray-600 text-xl">
           ⭐
         </span>
       );
@@ -67,10 +67,10 @@ const ProductDetail: React.FC = () => {
     return (
       <div className="text-center py-12">
         <div className="text-6xl mb-4">😞</div>
-        <h2 className="text-2xl font-bold text-gray-800 mb-4">
+        <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">
           Product Not Found
         </h2>
-        <p className="text-gray-600 mb-6">
+        <p className="text-gray-600 dark:text-gray-300 mb-6">
           The product you're looking for doesn't exist.
         </p>
         <Button onClick={() => navigate("/products")}>Back to Products</Button>
@@ -83,7 +83,7 @@ const ProductDetail: React.FC = () => {
       {/* Back Button */}
       <button
         onClick={() => navigate("/products")}
-        className="flex items-center text-gray-600 hover:text-emerald-600 mb-6 transition-colors group"
+        className="flex items-center text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 mb-6 transition-colors group"
       >
         <span className="text-lg group-hover:-translate-x-1 transition-transform">
           ←
@@ -93,7 +93,7 @@ const ProductDetail: React.FC = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
         {/* Product Image */}
-        <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg border border-gray-100 dark:border-gray-700">
           <img
             src={product.image}
             alt={product.title}
@@ -105,52 +105,52 @@ const ProductDetail: React.FC = () => {
         <div className="space-y-6">
           {/* Category & Rating */}
           <div className="flex items-center justify-between">
-            <span className="bg-emerald-100 text-emerald-800 px-4 py-2 rounded-full text-sm font-medium">
+            <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-4 py-2 rounded-full text-sm font-medium">
               {product.category}
             </span>
             <div className="flex items-center space-x-2">
               <div className="flex">{renderStars(product.rating.rate)}</div>
-              <span className="text-sm text-gray-600">
+              <span className="text-sm text-gray-600 dark:text-gray-300">
                 {product.rating.rate} ({product.rating.count} reviews)
               </span>
             </div>
           </div>
 
           {/* Title */}
-          <h1 className="text-3xl lg:text-4xl font-bold text-gray-800 leading-tight">
+          <h1 className="text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white leading-tight">
             {product.title}
           </h1>
 
           {/* Price */}
-          <div className="text-4xl font-bold text-emerald-600">
+          <div className="text-4xl font-bold text-blue-600 dark:text-blue-400">
             ${product.price}
           </div>
 
           {/* Description */}
           <div className="space-y-4">
-            <h3 className="text-xl font-semibold text-gray-800">
+            <h3 className="text-xl font-semibold text-gray-800 dark:text-white">
               Product Description
             </h3>
-            <p className="text-gray-600 leading-relaxed text-lg">
+            <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-lg">
               {product.description}
             </p>
           </div>
 
           {/* Rating Details */}
-          <div className="bg-gray-50 rounded-xl p-6">
-            <h3 className="text-lg font-semibold text-gray-800 mb-4">
+          <div className="bg-gray-50 dark:bg-gray-700 rounded-xl p-6">
+            <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-4">
               Customer Reviews
             </h3>
             <div className="grid grid-cols-2 gap-4 text-sm">
               <div className="flex items-center justify-between">
-                <span className="text-gray-600">Average Rating:</span>
-                <span className="font-semibold text-gray-800">
+                <span className="text-gray-600 dark:text-gray-300">Average Rating:</span>
+                <span className="font-semibold text-gray-800 dark:text-white">
                   {product.rating.rate}/5
                 </span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-gray-600">Total Reviews:</span>
-                <span className="font-semibold text-gray-800">
+                <span className="text-gray-600 dark:text-gray-300">Total Reviews:</span>
+                <span className="font-semibold text-gray-800 dark:text-white">
                   {product.rating.count}
                 </span>
               </div>
@@ -177,34 +177,33 @@ const ProductDetail: React.FC = () => {
           </div>
 
           {/* Additional Info */}
-          <div className="border-t pt-6">
-            <h3 className="text-lg font-semibold text-gray-800 mb-4">
+          <div className="border-t dark:border-gray-600 pt-6">
+            <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-4">
               Product Information
             </h3>
             <div className="grid grid-cols-2 gap-4 text-sm">
               <div>
-                <span className="text-gray-600">Category:</span>
-                <p className="font-medium text-gray-800 capitalize">
+                <span className="text-gray-600 dark:text-gray-300">Category:</span>
+                <p className="font-medium text-gray-800 dark:text-white capitalize">
                   {product.category}
                 </p>
               </div>
               <div>
-                <span className="text-gray-600">Product ID:</span>
-                <p className="font-medium text-gray-800">#{product.id}</p>
+                <span className="text-gray-600 dark:text-gray-300">Product ID:</span>
+                <p className="font-medium text-gray-800 dark:text-white">#{product.id}</p>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Related Products Section (Optional) */}
-      <div className="mt-16 border-t pt-12">
-        <h2 className="text-2xl font-bold text-gray-800 mb-8">
+      {/* Related Products Section */}
+      <div className="mt-16 border-t dark:border-gray-600 pt-12">
+        <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-8">
           You Might Also Like
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {/* You can add related products here later */}
-          <div className="text-center py-8 text-gray-500">
+          <div className="text-center py-8 text-gray-500 dark:text-gray-400">
             <p>More products coming soon...</p>
           </div>
         </div>

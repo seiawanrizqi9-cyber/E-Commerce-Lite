@@ -44,7 +44,7 @@ const Home: React.FC = () => {
           <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
             Discover curated collections of high-quality products with exceptional service.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex sm:flex-row gap-4 justify-center">
             <Link to="/products">
               <Button size="lg" className="text-lg px-8 py-4">
                 🛍️ Shop Now
@@ -66,7 +66,7 @@ const Home: React.FC = () => {
           <p className="text-gray-600 dark:text-gray-300">We provide the best shopping experience with these key features</p>
         </div>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-4 sm:grid-cols-2 lg:grid-cols-1 gap-6">
           {features.map((feature, index) => (
             <div 
               key={index}

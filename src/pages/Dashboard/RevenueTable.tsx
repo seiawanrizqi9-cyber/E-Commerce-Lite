@@ -24,26 +24,26 @@ const RevenueTable: React.FC = () => {
   };
 
   return (
-    <div className="bg-white p-6 rounded-2xl shadow-lg">
-      <h3 className="text-xl font-bold text-gray-800 mb-6">Revenue by Category</h3>
+    <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700">
+      <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-6">Revenue by Category</h3>
       <div className="overflow-x-auto">
         <table className="w-full">
           <thead>
-            <tr className="border-b border-gray-200">
-              <th className="text-left pb-4 font-semibold text-gray-600">Category</th>
-              <th className="text-right pb-4 font-semibold text-gray-600">Revenue</th>
-              <th className="text-right pb-4 font-semibold text-gray-600">Growth</th>
+            <tr className="border-b border-gray-200 dark:border-gray-600">
+              <th className="text-left pb-4 font-semibold text-gray-600 dark:text-gray-300">Category</th>
+              <th className="text-right pb-4 font-semibold text-gray-600 dark:text-gray-300">Revenue</th>
+              <th className="text-right pb-4 font-semibold text-gray-600 dark:text-gray-300">Growth</th>
             </tr>
           </thead>
           <tbody>
             {revenueData.map((item) => (
-              <tr key={item.category} className="border-b border-gray-100 last:border-0">
-                <td className="py-4 font-medium text-gray-800">{item.category}</td>
-                <td className="py-4 text-right font-semibold text-gray-800">
+              <tr key={item.category} className="border-b border-gray-100 dark:border-gray-700 last:border-0">
+                <td className="py-4 font-medium text-gray-800 dark:text-white">{item.category}</td>
+                <td className="py-4 text-right font-semibold text-gray-800 dark:text-white">
                   {formatCurrency(item.revenue)}
                 </td>
                 <td className={`py-4 text-right font-semibold ${
-                  item.trend === 'up' ? 'text-green-600' : 'text-red-600'
+                  item.trend === 'up' ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'
                 }`}>
                   {item.trend === 'up' ? '↗' : '↘'} {Math.abs(item.growth)}%
                 </td>
@@ -52,7 +52,7 @@ const RevenueTable: React.FC = () => {
           </tbody>
         </table>
       </div>
-      <div className="mt-6 pt-6 border-t border-gray-200 text-sm text-gray-600">
+      <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-600 text-sm text-gray-600 dark:text-gray-400">
         <p>Total Revenue: {formatCurrency(revenueData.reduce((sum, item) => sum + item.revenue, 0))}</p>
       </div>
     </div>
