@@ -10,6 +10,10 @@
 Aplikasi ini dirancang untuk memberikan pengalaman belanja online yang lengkap — mulai dari katalog produk, sistem login dengan role, hingga dashboard admin.
 Dilengkapi **dark mode**, **responsif di semua perangkat**, dan **manajemen state yang kuat**.
 
+**Link PPT:** https://www.canva.com/design/DAG3IVBUIAc/eXiDhsIOhcVHnY49120CbA/edit
+
+**Link Presentasi:** https://youtu.be/EdcCA_uSBcM
+
 **Tech Badges:**
 ![React](https://img.shields.io/badge/React-18.2.0-blue)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue)
