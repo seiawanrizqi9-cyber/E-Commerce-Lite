@@ -148,15 +148,6 @@ const Login: React.FC = () => {
             <p><strong>User:</strong> nama/email bebas + password bebas</p>
           </div>
         </div>
-
-        {/* Role Information */}
-        <div className="mt-4 p-4 bg-blue-50 dark:bg-blue-900/30 rounded-lg border border-blue-200 dark:border-blue-700">
-          <h3 className="text-sm font-medium text-blue-800 dark:text-blue-300 mb-2">Perbedaan Role:</h3>
-          <div className="text-xs text-blue-700 dark:text-blue-300 space-y-1">
-            <p><strong>User:</strong> Bisa belanja, lihat produk, tapi tidak bisa akses Dashboard</p>
-            <p><strong>Admin:</strong> Bisa akses Dashboard untuk melihat laporan penjualan</p>
-          </div>
-        </div>
       </div>
     </div>
   );
